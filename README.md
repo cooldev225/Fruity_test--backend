@@ -29,7 +29,7 @@ php ./bin/console doctrine:database:create
 
 # run migration
 ```
-php bin/console doctrine:migrations:migrate
+php ./bin/console doctrine:migrations:migrate
 ```
 
 # fetch data from the https://fruityvice.com/ and save them to the database
