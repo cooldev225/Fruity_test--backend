@@ -85,6 +85,7 @@ class SaveDataCommand extends Command
 
                 $output->writeln($col_name . " " . $col_value);
             }
+            $output->write('Data saved successfully!');
         }
 
 

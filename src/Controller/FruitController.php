@@ -22,14 +22,14 @@ class FruitController extends AbstractController
     {
         $this->entityManager->persist($fruit);
         $this->entityManager->flush();
-
         $email = (new Email())
             ->from('hello@example.com')
             ->to('test@gmail.com')
             ->subject('New Fruit Created Successfully!')
             ->text('New Fruit Created Successfully!')
             ->html('<p>New Fruit Created Successfully!</p>');
-
+        
         $this->mailer->send($email);
+        return $fruit;
     }
 }

@@ -12,10 +12,16 @@ use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use App\Controller\FruitController;
+use App\Controller\FavoritesController;
 
 #[ORM\Entity(repositoryClass: FruitRepository::class)]
 #[ApiResource(operations: [
     new Get(),
+    new GetCollection(
+        name: 'getFavorites',
+        uriTemplate: '/favorites',
+        controller: FavoritesController::class
+    ),
     new GetCollection(),
     new Put(),
     new Delete(),
