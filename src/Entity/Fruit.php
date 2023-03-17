@@ -3,11 +3,29 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
 use App\Repository\FruitRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+use App\Controller\FruitController;
 
 #[ORM\Entity(repositoryClass: FruitRepository::class)]
-#[ApiResource]
+#[ApiResource(operations: [
+    new Get(),
+    new GetCollection(),
+    new Put(),
+    new Delete(),
+    new Patch(),
+    new Post(
+        name: 'create',
+        uriTemplate: '/fruits',
+        controller: FruitController::class
+    )
+])]
 class Fruit
 {
     #[ORM\Id]
