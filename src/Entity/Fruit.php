@@ -18,13 +18,13 @@ class Fruit
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $genus = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?int $fruit_id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $family = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -67,7 +67,7 @@ class Fruit
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
@@ -79,7 +79,7 @@ class Fruit
         return $this->fruit_id;
     }
 
-    public function setFruitId(int $fruit_id): self
+    public function setFruitId(?int $fruit_id): self
     {
         $this->fruit_id = $fruit_id;
 
@@ -91,7 +91,7 @@ class Fruit
         return $this->family;
     }
 
-    public function setFamily(string $family): self
+    public function setFamily(?string $family): self
     {
         $this->family = $family;
 
