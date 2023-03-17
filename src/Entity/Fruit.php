@@ -63,6 +63,9 @@ class Fruit
     #[ORM\Column(nullable: true)]
     private ?float $sugar = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $is_favorite = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -184,6 +187,18 @@ class Fruit
     public function setSugar(?float $sugar): self
     {
         $this->sugar = $sugar;
+
+        return $this;
+    }
+
+    public function isIsFavorite(): ?bool
+    {
+        return $this->is_favorite;
+    }
+
+    public function setIsFavorite(?bool $is_favorite): self
+    {
+        $this->is_favorite = $is_favorite;
 
         return $this;
     }
